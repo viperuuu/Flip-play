@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Mahasiswa 3" />
+  <meta name="description" content="FlipPlay - Platform Streaming Anime, Drama, Manga, dan Light Novel Digital Terlengkap." />
+  <meta name="color-scheme" content="dark" />
+  <title>FlipPlay | Platform Streaming & Reading Digital</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%229%22%20fill%3D%22%23a855f7%22/%3E%3Cpath%20d%3D%22m11%208%2013%208-13%208V8Z%22%20fill%3D%22%23ffffff%22/%3E%3C/svg%3E" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./output.css" />
+  
+  <!-- JavaScript -->
+  <script src="./script.js" defer></script>
+</head>
+<body class="bg-[#07050e] text-slate-100 font-sans antialiased selection:bg-purple-500/30 selection:text-purple-200">
+  
+  <!-- Aksesibilitas: Tautan Lewati ke Konten -->
+  <a href="#konten-utama" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-xl focus:bg-purple-600 focus:px-5 focus:py-3 focus:text-white">
+    Lewati ke konten utama
+  </a>
+
+  <!-- ========================================== -->
+  <!-- NAVBAR / HEADER                            -->
+  <!-- ========================================== -->
+  <header class="glass-nav sticky top-0 z-50 border-b border-purple-900/30">
+    <section class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10 lg:px-16">
+      
+      <!-- Logo Brand -->
+      <a href="#beranda" class="inline-flex items-center gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500 group" aria-label="FlipPlay - Beranda">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl gradient-brand text-white shadow-lg shadow-purple-600/30 transition-transform duration-300 group-hover:scale-110" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current"><path d="m8 5 11 7-11 7V5Z" /></svg>
+        </span>
+        <p class="flex flex-col">
+          <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1.5">
+            Flip<span class="gradient-text">Play</span>
+            <span class="rounded-md bg-purple-500/20 px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-purple-300 border border-purple-500/30">PRO</span>
+          </span>
+        </p>
+      </a>
+
+      <!-- Navigasi Desktop -->
+      <nav aria-label="Navigasi utama" class="hidden items-center gap-8 md:flex">
+        <a href="#beranda" class="text-sm font-semibold text-white transition hover:text-purple-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500">
+          Beranda
+        </a>
+        <a href="#koleksi" class="text-sm font-medium text-slate-300 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500">
+          Koleksi
+        </a>
+        <a href="#tentang" class="text-sm font-medium text-slate-300 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500">
+          Tentang
+        </a>
+        <a href="#kontak" class="text-sm font-medium text-slate-300 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500">
+          Kontak
+        </a>
+      </nav>
+
+      <!-- Right Header Actions (Search & CTA) -->
+      <aside class="hidden items-center gap-4 md:flex">
+        <search>
+          <input 
+            type="search" 
+            placeholder="Cari anime, manga..." 
+            class="w-48 rounded-full border border-purple-900/40 bg-purple-950/30 px-4 py-2 text-xs text-white placeholder-slate-400 focus:w-60 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/30 transition-all duration-300"
+          />
+        </search>
+        <a href="#koleksi" class="inline-flex items-center justify-center rounded-full gradient-brand px-6 py-2.5 text-xs font-bold text-white shadow-lg shadow-purple-600/25 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/40 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500">
+          Mulai Nonton
+        </a>
+      </aside>
+
+      <!-- Tombol Hamburger Mobile -->
+      <button id="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" class="inline-flex min-h-10 items-center gap-2 rounded-xl border border-purple-800/40 bg-purple-950/30 px-3.5 py-2 text-xs font-semibold text-slate-200 md:hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <span id="menu-label">Menu</span>
+      </button>
+    </section>
+
+    <!-- Navigasi Mobile Dropdown -->
+    <nav id="mobile-menu" aria-label="Navigasi seluler" class="hidden w-full flex-col gap-2 border-t border-purple-900/30 bg-[#07050e] px-6 pb-6 pt-4 md:hidden">
+      <a href="#beranda" class="rounded-xl px-4 py-3 font-medium text-white hover:bg-purple-950/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500">
+        Beranda
+      </a>
+      <a href="#koleksi" class="rounded-xl px-4 py-3 font-medium text-slate-300 hover:bg-purple-950/50 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500">
+        Koleksi
+      </a>
+      <a href="#tentang" class="rounded-xl px-4 py-3 font-medium text-slate-300 hover:bg-purple-950/50 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500">
+        Tentang
+      </a>
+      <a href="#kontak" class="rounded-xl px-4 py-3 font-medium text-slate-300 hover:bg-purple-950/50 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500">
+        Kontak
+      </a>
+      <a href="#koleksi" class="mt-2 inline-flex items-center justify-center rounded-full gradient-brand px-5 py-3 text-center text-sm font-bold text-white shadow-lg shadow-purple-600/30">
+        Mulai Nonton
+      </a>
+    </nav>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- KONTEN UTAMA                               -->
+  <!-- ========================================== -->
+  <main id="konten-utama" tabindex="-1">
+    
+    <!-- 1. SEKSI HERO (Streaming Platform Showcase) -->
+    <section id="beranda" aria-labelledby="hero-title" class="relative overflow-hidden min-h-[90vh] flex items-center scroll-mt-24 py-16 lg:py-24">
+      
+      <!-- Latar Belakang Cinema Banner dengan Overlay Vignette -->
+      <figure class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img 
+          src="assets/hero-banner.jpg" 
+          alt="" 
+          class="h-full w-full object-cover object-center scale-105 opacity-40 brightness-75 contrast-125 filter blur-[2px]"
+        />
+        <!-- Multi-layer gradient overlays untuk keterbacaan sempurna -->
+        <span class="absolute inset-0 bg-gradient-to-t from-[#07050e] via-[#07050e]/80 to-transparent"></span>
+        <span class="absolute inset-0 bg-gradient-to-r from-[#07050e] via-[#07050e]/90 to-transparent"></span>
+        <!-- Ambient Neon Glow Orb -->
+        <span class="absolute -top-32 left-1/3 h-96 w-96 rounded-full bg-purple-600/30 blur-[120px]"></span>
+        <span class="absolute bottom-10 right-10 h-80 w-80 rounded-full bg-cyan-600/20 blur-[100px]"></span>
+      </figure>
+
+      <section class="relative z-10 mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-16">
+        <section class="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          
+          <!-- Hero Main Content -->
+          <article>
+            <!-- Live Badge -->
+            <p class="mb-6 inline-flex items-center gap-2.5 rounded-full border border-purple-500/30 bg-purple-950/50 px-4 py-1.5 backdrop-blur-md">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-purple-500"></span>
+              </span>
+              <span class="text-xs font-bold uppercase tracking-wider text-purple-200">
+                🔥 TRENDING #1 ANIME & NOVEL
+              </span>
+            </p>
+
+            <!-- Title -->
+            <h1 id="hero-title" class="text-4xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl leading-[1.05]">
+              Nikmati Cerita Tanpa Batas.<br />
+              <span class="gradient-text">Tonton & Baca.</span>
+            </h1>
+
+            <!-- Paragraph -->
+            <p class="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-300 font-normal">
+              Dari anime aksi kualitas 4K Ultra HD hingga manga & novel pilihan. FlipPlay menyatukan pengalaman streaming dan membaca dalam satu platform cepat & bebas iklan.
+            </p>
+
+            <!-- Tags Metadata -->
+            <p class="mt-6 flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-300">
+              <span class="rounded-lg bg-purple-900/40 border border-purple-700/30 px-3 py-1 text-purple-300">4K Ultra HD</span>
+              <span class="rounded-lg bg-slate-800/60 border border-slate-700/40 px-3 py-1">Subtitel Indonesia</span>
+              <span class="rounded-lg bg-slate-800/60 border border-slate-700/40 px-3 py-1">Streaming Cepat</span>
+              <span class="rounded-lg bg-cyan-950/60 border border-cyan-800/40 px-3 py-1 text-cyan-300">⭐ 4.9 / 5.0</span>
+            </p>
+
+            <!-- Buttons CTA -->
+            <p class="mt-8 flex flex-wrap items-center gap-4">
+              <!-- Primary Trailer Button (Triggers Modal Video) -->
+              <button 
+                type="button" 
+                class="play-modal-btn inline-flex min-h-12 items-center justify-center gap-3 rounded-full gradient-brand px-8 py-4 text-base font-extrabold text-white shadow-xl glow-purple transition-all duration-300 hover:scale-105 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500"
+              >
+                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-white/20">
+                  <svg viewBox="0 0 24 24" class="h-4 w-4 fill-white"><path d="m8 5 11 7-11 7V5Z" /></svg>
+                </span>
+                <span>Tonton Trailer Utama</span>
+              </button>
+
+              <!-- Secondary Button -->
+              <a href="#koleksi" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/20 bg-white/5 px-7 py-4 text-base font-bold text-white backdrop-blur-md transition-all duration-300 hover:border-purple-400 hover:bg-white/10 hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500">
+                Jelajahi Katalog
+              </a>
+            </p>
+          </article>
+
+          <!-- Hero Spotlight Video Card (Demon Slayer Video Feature) -->
+          <article class="relative">
+            <section class="group relative overflow-hidden rounded-3xl border border-purple-500/30 glass-card p-3 shadow-2xl transition-all duration-500 hover:border-purple-400/60 glow-purple-sm">
+              <figure class="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-black">
+                <video
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  controls
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                >
+                  <source src="assets/Demon Slayer_ Kimetsu no Yaiba Infinity Castle _ MAIN TRAILER.mp4" type="video/mp4" />
+                  Browser Anda tidak mendukung penayangan video.
+                </video>
+                
+                <figcaption class="absolute top-3 left-3 rounded-lg bg-red-600 px-2.5 py-1 text-[11px] font-black tracking-wider text-white shadow">
+                  🔥 MOVIE TRAILER
+                </figcaption>
+              </figure>
+
+              <!-- Card Info Footer -->
+              <footer class="mt-4 flex items-center justify-between px-2 pb-1">
+                <hgroup>
+                  <h3 class="text-base font-bold text-white">Demon Slayer: Infinity Castle</h3>
+                  <p class="text-xs text-slate-400">Anime Feature &bull; 4K Ultra HD &bull; Sub Indo</p>
+                </hgroup>
+                <button type="button" class="play-modal-btn rounded-xl bg-purple-600/30 p-2.5 text-purple-300 border border-purple-500/30 hover:bg-purple-600 hover:text-white transition">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current"><path d="m8 5 11 7-11 7V5Z" /></svg>
+                </button>
+              </footer>
+            </section>
+          </article>
+
+        </section>
+      </section>
+    </section>
+
+    <!-- 2. SEKSI KOLEKSI INTERAKTIF -->
+    <section id="koleksi" aria-labelledby="collection-title" class="scroll-mt-24 border-t border-purple-900/30 bg-[#090712] py-20">
+      <section class="mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-16">
+        
+        <!-- Header Seksi Koleksi & Tabs Filter -->
+        <section class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-12">
+          <div>
+            <p class="mb-2 text-xs font-extrabold tracking-[0.2em] text-purple-400 uppercase">
+              KATALOG TERBARU & POPULER
+            </p>
+            <h2 id="collection-title" class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              Pilihan Cerita Terpopuler
+            </h2>
+            <p class="mt-2 text-sm text-slate-400">
+              Filter kategori berdasarkan format favoritmu.
+            </p>
+          </hgroup>
+
+          <!-- Interactive Category Filter Tabs -->
+          <menu class="flex flex-wrap gap-2 rounded-2xl border border-purple-900/40 bg-purple-950/20 p-1.5 backdrop-blur-md list-none">
+            <li>
+              <button type="button" data-filter="all" class="filter-btn rounded-xl bg-purple-600 px-4 py-2 text-xs font-bold text-white shadow-lg shadow-purple-600/30 transition">
+                🔥 Semua (4)
+              </button>
+            </li>
+            <li>
+              <button type="button" data-filter="anime" class="filter-btn rounded-xl bg-purple-950/30 border border-purple-900/40 px-4 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-purple-900/40 transition">
+                🎌 Anime
+              </button>
+            </li>
+            <li>
+              <button type="button" data-filter="drama" class="filter-btn rounded-xl bg-purple-950/30 border border-purple-900/40 px-4 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-purple-900/40 transition">
+                🎭 Drama
+              </button>
+            </li>
+            <li>
+              <button type="button" data-filter="manga" class="filter-btn rounded-xl bg-purple-950/30 border border-purple-900/40 px-4 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-purple-900/40 transition">
+                📚 Manga
+              </button>
+            </li>
+            <li>
+              <button type="button" data-filter="lightnovel" class="filter-btn rounded-xl bg-purple-950/30 border border-purple-900/40 px-4 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-purple-900/40 transition">
+                📖 Light Novel
+              </button>
+            </li>
+          </menu>
+        </section>
+
+        <!-- Grid Kartu Koleksi Streaming Cards -->
+        <section id="collection-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          
+          <!-- Kartu 1: Anime -->
+          <article data-category="anime" class="collection-card group relative flex flex-col overflow-hidden rounded-3xl border border-purple-900/30 bg-[#110d1f] p-4 transition-all duration-300 hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-950/60">
+            <figure class="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-purple-950/30">
+              <img
+                src="assets/anime.jpeg"
+                alt="Anime Hutan Cahaya"
+                width="360"
+                height="225"
+                loading="lazy"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <span class="absolute top-3 left-3 rounded-lg bg-purple-600/90 px-2.5 py-1 text-[10px] font-black tracking-wider text-white backdrop-blur-sm">
+                ANIME
+              </span>
+              <span class="absolute bottom-3 right-3 rounded-lg bg-black/70 px-2 py-0.5 text-[10px] font-bold text-amber-400 backdrop-blur-sm">
+                ⭐ 4.9 (24 Ep)
+              </span>
+            </figure>
+            <section class="mt-4 flex flex-col flex-1">
+              <h3 class="text-lg font-extrabold text-white group-hover:text-purple-400 transition-colors">Hutan Cahaya</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-400 flex-1">
+                Petualangan anime fantasi memukau tentang keberanian menjaga takdir hutan ajaib.
+              </p>
+              <footer class="mt-4 pt-3 border-t border-purple-900/20 flex items-center justify-between">
+                <span class="text-[11px] text-purple-300 font-semibold">4K &bull; Full Season</span>
+                <button type="button" class="play-modal-btn inline-flex items-center gap-1 text-xs font-bold text-purple-400 hover:text-white transition">
+                  <span>▶ Tonton</span>
+                </button>
+              </footer>
+            </section>
+          </article>
+
+          <!-- Kartu 2: Drama -->
+          <article data-category="drama" class="collection-card group relative flex flex-col overflow-hidden rounded-3xl border border-purple-900/30 bg-[#110d1f] p-4 transition-all duration-300 hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-950/60">
+            <figure class="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-purple-950/30">
+              <img
+                src="assets/Drama.jpeg"
+                alt="Drama Di Balik Jendela"
+                width="360"
+                height="225"
+                loading="lazy"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <span class="absolute top-3 left-3 rounded-lg bg-pink-600/90 px-2.5 py-1 text-[10px] font-black tracking-wider text-white backdrop-blur-sm">
+                DRAMA
+              </span>
+              <span class="absolute bottom-3 right-3 rounded-lg bg-black/70 px-2 py-0.5 text-[10px] font-bold text-amber-400 backdrop-blur-sm">
+                ⭐ 4.8 (16 Ep)
+              </span>
+            </figure>
+            <section class="mt-4 flex flex-col flex-1">
+              <h3 class="text-lg font-extrabold text-white group-hover:text-purple-400 transition-colors">Di Balik Jendela</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-400 flex-1">
+                Drama kehidupan hangat tentang rahasia dan persahabatan di sudut kota.
+              </p>
+              <footer class="mt-4 pt-3 border-t border-purple-900/20 flex items-center justify-between">
+                <span class="text-[11px] text-pink-300 font-semibold">1080p &bull; Complete</span>
+                <button type="button" class="play-modal-btn inline-flex items-center gap-1 text-xs font-bold text-purple-400 hover:text-white transition">
+                  <span>▶ Tonton</span>
+                </button>
+              </footer>
+            </section>
+          </article>
+
+          <!-- Kartu 3: Manga -->
+          <article data-category="manga" class="collection-card group relative flex flex-col overflow-hidden rounded-3xl border border-purple-900/30 bg-[#110d1f] p-4 transition-all duration-300 hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-950/60">
+            <figure class="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-purple-950/30">
+              <img
+                src="assets/manga.webp"
+                alt="Manga Peta Pulau Rahasia"
+                width="360"
+                height="225"
+                loading="lazy"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <span class="absolute top-3 left-3 rounded-lg bg-cyan-600/90 px-2.5 py-1 text-[10px] font-black tracking-wider text-white backdrop-blur-sm">
+                MANGA
+              </span>
+              <span class="absolute bottom-3 right-3 rounded-lg bg-black/70 px-2 py-0.5 text-[10px] font-bold text-amber-400 backdrop-blur-sm">
+                ⭐ 4.9 (85 Bab)
+              </span>
+            </figure>
+            <section class="mt-4 flex flex-col flex-1">
+              <h3 class="text-lg font-extrabold text-white group-hover:text-purple-400 transition-colors">Peta Pulau Rahasia</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-400 flex-1">
+                Manga petualangan seru mengikuti peta pelayaran kuno ke lautan terlarang.
+              </p>
+              <footer class="mt-4 pt-3 border-t border-purple-900/20 flex items-center justify-between">
+                <span class="text-[11px] text-cyan-300 font-semibold">Digital Reader HD</span>
+                <a href="#koleksi" class="inline-flex items-center gap-1 text-xs font-bold text-cyan-400 hover:text-white transition">
+                  <span>📖 Baca</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Kartu 4: Light Novel -->
+          <article data-category="lightnovel" class="collection-card group relative flex flex-col overflow-hidden rounded-3xl border border-purple-900/30 bg-[#110d1f] p-4 transition-all duration-300 hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-950/60">
+            <figure class="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-purple-950/30">
+              <img
+                src="assets/light-novel.webp"
+                alt="Light Novel Perpustakaan Senja"
+                width="360"
+                height="225"
+                loading="lazy"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <span class="absolute top-3 left-3 rounded-lg bg-amber-600/90 px-2.5 py-1 text-[10px] font-black tracking-wider text-white backdrop-blur-sm">
+                LIGHT NOVEL
+              </span>
+              <span class="absolute bottom-3 right-3 rounded-lg bg-black/70 px-2 py-0.5 text-[10px] font-bold text-amber-400 backdrop-blur-sm">
+                ⭐ 4.9 (12 Vol)
+              </span>
+            </figure>
+            <section class="mt-4 flex flex-col flex-1">
+              <h3 class="text-lg font-extrabold text-white group-hover:text-purple-400 transition-colors">Perpustakaan Senja</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-400 flex-1">
+                Light novel penuh misteri tentang perpustakaan ajaib dan pembaca pilihan.
+              </p>
+              <footer class="mt-4 pt-3 border-t border-purple-900/20 flex items-center justify-between">
+                <span class="text-[11px] text-amber-300 font-semibold">Lengkap Sub Indo</span>
+                <a href="#koleksi" class="inline-flex items-center gap-1 text-xs font-bold text-amber-400 hover:text-white transition">
+                  <span>📖 Baca</span>
+                </a>
+              </footer>
+            </section>
+          </article>
+
+        </section>
+      </section>
+    </section>
+
+    <!-- 3. SEKSI TENTANG (Stat Counter Highlights) -->
+    <section id="tentang" aria-labelledby="about-title" class="scroll-mt-24 py-20 bg-[#07050e] relative overflow-hidden">
+      <section class="mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-16">
+        <section class="relative overflow-hidden rounded-3xl border border-purple-500/30 glass-card p-8 sm:p-12 lg:p-16 shadow-2xl">
+          <!-- Neon Ambient Glow -->
+          <span class="absolute -left-20 -bottom-20 h-96 w-96 rounded-full bg-purple-600/20 blur-[100px] pointer-events-none"></span>
+
+          <section class="grid gap-12 lg:grid-cols-[1fr_1.5fr] lg:items-center">
+            
+            <!-- Pengenalan Tentang -->
+            <article>
+              <p class="mb-3 text-xs font-extrabold tracking-[0.2em] text-purple-400 uppercase">
+                TENTANG PLATFORM FLIPPLAY
+              </p>
+              <h2 id="about-title" class="text-3xl font-black text-white leading-tight sm:text-4xl">
+                Satu Platform.<br />
+                <span class="gradient-text">Tontonan & Bacaan Digital.</span>
+              </h2>
+              <p class="mt-4 text-sm leading-relaxed text-slate-300">
+                FlipPlay didesain khusus untuk pencinta hiburan digital yang menginginkan kebebasan beralih dari layar tontonan ke lembar bacaan tanpa batas.
+              </p>
+              
+              <p class="mt-6 flex flex-wrap gap-3">
+                <span class="rounded-full bg-purple-500/20 border border-purple-500/30 px-4 py-1.5 text-xs font-semibold text-purple-200">✨ Multi-Device Access</span>
+                <span class="rounded-full bg-purple-500/20 border border-purple-500/30 px-4 py-1.5 text-xs font-semibold text-purple-200">⚡ Fast Cloud Stream</span>
+              </p>
+            </article>
+
+            <!-- Grid Stats Badge Card -->
+            <section class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl border border-purple-900/40 bg-purple-950/30 p-6 backdrop-blur-md">
+                <p class="text-3xl font-black gradient-text">10,000+</p>
+                <h3 class="mt-2 text-sm font-bold text-white">Jam Streaming HD</h3>
+                <p class="mt-1 text-xs text-slate-400">Koleksi anime & drama lengkap kualitas tinggi tanpa buffering.</p>
+              </div>
+
+              <div class="rounded-2xl border border-purple-900/40 bg-purple-950/30 p-6 backdrop-blur-md">
+                <p class="text-3xl font-black text-cyan-400">5,000+</p>
+                <h3 class="mt-2 text-sm font-bold text-white">Bab Manga & Novel</h3>
+                <p class="mt-1 text-xs text-slate-400">Pustaka komik dan novel digital yang diperbarui setiap minggu.</p>
+              </div>
+
+              <div class="rounded-2xl border border-purple-900/40 bg-purple-950/30 p-6 backdrop-blur-md">
+                <p class="text-3xl font-black text-purple-400">4K UHD</p>
+                <h3 class="mt-2 text-sm font-bold text-white">Bebas Iklan Pengganggu</h3>
+                <p class="mt-1 text-xs text-slate-400">Pengalaman menonton dan membaca yang jernih dan fokus.</p>
+              </div>
+
+              <div class="rounded-2xl border border-purple-900/40 bg-purple-950/30 p-6 backdrop-blur-md">
+                <p class="text-3xl font-black text-amber-400">1M+</p>
+                <h3 class="mt-2 text-sm font-bold text-white">Pengguna Aktif</h3>
+                <p class="mt-1 text-xs text-slate-400">Komunitas penggemar tontonan dan bacaan terbesar.</p>
+              </div>
+            </div>
+
+          </section>
+        </section>
+      </section>
+    </section>
+
+    <!-- 4. SEKSI KONTAK -->
+    <section id="kontak" aria-labelledby="contact-title" class="scroll-mt-24 border-t border-purple-900/30 bg-[#090712] py-20">
+      <section class="mx-auto grid w-full max-w-7xl gap-12 px-6 sm:px-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16 lg:px-16">
+        
+        <!-- Informasi Kontak -->
+        <article>
+          <p class="mb-3 text-xs font-extrabold tracking-[0.2em] text-purple-400 uppercase">
+            HUBUNGI KAMI
+          </p>
+          <h2 id="contact-title" class="text-3xl font-black text-white leading-tight sm:text-4xl">
+            Punya Rekomendasi<br />
+            atau Pertanyaan?
+          </h2>
+          <p class="mt-4 text-sm leading-relaxed text-slate-400">
+            Sampaikan saran judul anime, kolaborasi konten, atau kendala akses. Tim support FlipPlay siap membantumu.
+          </p>
+          
+          <aside class="mt-8 rounded-2xl border border-purple-900/40 bg-purple-950/20 p-5 backdrop-blur-md">
+            <p class="font-bold text-white text-sm">💬 Layanan Respon Cepat</p>
+            <p class="mt-1 text-xs text-slate-400">Formulir di samping menyediakan pratinjau pesan otomatis secara langsung.</p>
+          </aside>
+        </article>
+
+        <!-- Formulir Kontak Glassmorphism -->
+        <form id="contact-form" class="rounded-3xl border border-purple-900/40 glass-card p-6 sm:p-8 shadow-2xl" aria-label="Formulir kontak FlipPlay">
+          
+          <!-- Baris: Nama & Email -->
+          <section class="grid gap-6 sm:grid-cols-2">
+            <fieldset class="border-none p-0 m-0">
+              <label for="nama" class="text-xs font-bold text-slate-200 block uppercase tracking-wider">
+                Nama lengkap <span class="text-purple-400" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="nama"
+                name="nama"
+                type="text"
+                required
+                autocomplete="name"
+                maxlength="80"
+                placeholder="Nama kamu"
+                class="mt-2 min-h-12 w-full rounded-xl border border-purple-900/50 bg-[#171228] px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500/40 transition"
+              />
+            </fieldset>
+            <fieldset class="border-none p-0 m-0">
+              <label for="email" class="text-xs font-bold text-slate-200 block uppercase tracking-wider">
+                Email <span class="text-purple-400" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autocomplete="email"
+                maxlength="120"
+                placeholder="nama@contoh.com"
+                class="mt-2 min-h-12 w-full rounded-xl border border-purple-900/50 bg-[#171228] px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500/40 transition"
+              />
+            </fieldset>
+          </section>
+
+          <!-- Pilihan Topik -->
+          <fieldset class="mt-6 border-none p-0 m-0">
+            <label for="topik" class="text-xs font-bold text-slate-200 block uppercase tracking-wider">
+              Topik pesan <span class="text-purple-400" aria-hidden="true">*</span>
+            </label>
+            <select
+              id="topik"
+              name="topik"
+              required
+              class="mt-2 min-h-12 w-full rounded-xl border border-purple-900/50 bg-[#171228] px-4 py-3 text-sm text-white focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500/40 transition"
+            >
+              <option value="" class="bg-[#171228] text-slate-400">Pilih topik pesan</option>
+              <option class="bg-[#171228] text-white">Informasi FlipPlay</option>
+              <option class="bg-[#171228] text-white">Saran konten anime/manga</option>
+              <option class="bg-[#171228] text-white">Kerja sama & Lisensi</option>
+            </select>
+          </fieldset>
+
+          <!-- Area Pesan -->
+          <fieldset class="mt-6 border-none p-0 m-0">
+            <label for="pesan" class="text-xs font-bold text-slate-200 block uppercase tracking-wider">
+              Pesan <span class="text-purple-400" aria-hidden="true">*</span>
+            </label>
+            <textarea
+              id="pesan"
+              name="pesan"
+              required
+              rows="4"
+              maxlength="1000"
+              placeholder="Tuliskan pesan kamu di sini..."
+              class="mt-2 min-h-12 w-full resize-y rounded-xl border border-purple-900/50 bg-[#171228] px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500/40 transition"
+            ></textarea>
+          </fieldset>
+
+          <!-- Tombol Kirim -->
+          <button
+            type="submit"
+            class="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-full gradient-brand px-8 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-purple-600/30 transition-all duration-300 hover:scale-[1.02] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500 sm:w-auto"
+          >
+            Pratinjau pesan
+          </button>
+
+          <!-- Status / Output Pratinjau -->
+          <output
+            id="form-status"
+            for="nama email topik pesan"
+            role="status"
+            aria-live="polite"
+            tabindex="-1"
+            class="mt-6 hidden block rounded-2xl border border-purple-500/40 bg-purple-950/40 p-4 text-xs leading-relaxed text-purple-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500"
+          ></output>
+        </form>
+
+      </section>
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- MODAL VIDEO WINDOW                         -->
+  <!-- ========================================== -->
+  <dialog id="video-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 p-4 backdrop-blur-lg w-full h-full max-w-none max-h-none border-none">
+    <article class="relative w-full max-w-4xl overflow-hidden rounded-3xl border border-purple-500/40 glass-card shadow-2xl">
+      <header class="flex items-center justify-between border-b border-purple-900/30 px-6 py-4">
+        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+          <span>🎬 Pratinjau Trailer: Demon Slayer Infinity Castle</span>
+        </h3>
+        <button id="close-modal" class="rounded-xl bg-white/10 p-2 text-slate-300 hover:bg-white/20 hover:text-white transition">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </header>
+      <figure class="relative aspect-[16/9] w-full bg-black">
+        <video id="modal-video" controls class="h-full w-full object-cover">
+          <source src="assets/Demon Slayer_ Kimetsu no Yaiba Infinity Castle _ MAIN TRAILER.mp4" type="video/mp4" />
+        </video>
+      </figure>
+    </article>
+  </dialog>
+
+  <!-- ========================================== -->
+  <!-- FOOTER                                     -->
+  <!-- ========================================== -->
+  <footer class="border-t border-purple-900/30 bg-[#05040a] py-12">
+    <section class="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
+      <section class="flex flex-col gap-8 md:flex-row md:items-center md:justify-between border-b border-purple-900/20 pb-8">
+        
+        <!-- Brand -->
+        <address>
+          <a href="#beranda" class="inline-flex items-center gap-3" aria-label="FlipPlay - Beranda">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl gradient-brand text-white text-sm font-bold">
+              <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current"><path d="m8 5 11 7-11 7V5Z" /></svg>
+            </span>
+            <span class="text-lg font-black tracking-tight text-white">Flip<span class="gradient-text">Play</span></span>
+          </a>
+          <p class="mt-2 text-xs text-slate-400">Platform tontonan anime & bacaan digital dalam satu genggaman.</p>
+        </address>
+
+        <!-- Footer Nav -->
+        <nav aria-label="Navigasi footer" class="flex flex-wrap gap-6 text-xs text-slate-300 font-medium">
+          <a href="#beranda" class="hover:text-purple-400 transition">Beranda</a>
+          <a href="#koleksi" class="hover:text-purple-400 transition">Koleksi Terbaru</a>
+          <a href="#tentang" class="hover:text-purple-400 transition">Tentang Kami</a>
+          <a href="#kontak" class="hover:text-purple-400 transition">Pusat Bantuan</a>
+        </nav>
+      </section>
+
+      <section class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-500">
+        <p>&copy; 2026 FlipPlay Digital Platform. Hak Cipta Dilindungi.</p>
+        <a href="#beranda" class="text-purple-400 hover:text-white underline transition">
+          Kembali ke atas &uarr;
+        </a>
+      </section>
+    </section>
+  </footer>
+</body>
+</html>

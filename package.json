@@ -1,0 +1,14 @@
+{
+  "name": "flipplay-orang-3",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Demo Modul 1 FlipPlay - Green Editorial",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/main.css -o ./src/output.css --watch",
+    "build": "tailwindcss -i ./src/main.css -o ./src/output.css"
+  },
+  "dependencies": {
+    "tailwindcss": "4.3.3",
+    "@tailwindcss/cli": "4.3.3"
+  }
+}
